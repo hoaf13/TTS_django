@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mycss.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2" style='background-color:rgb(25,55,71)'>
+                <div class="box" style='padding-top: 200px ;text-align: center;' >
+                    <a href="#"><img src="{% static 'images/ProPTIT.png' %}" alt="My image" class="logo"></a>
+                    <div class="title" style="padding-top: 20px;font-size: xx-large; font-weight: bold;color: aliceblue;">ProPTIT AIForce</div>
+                </div>     
+            </div>
+
+            <div class="col-sm-9">
+                <button type="button" class="btn btn-primary">Primary</button>
+                <form action="." method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                <input type="submit" value="Submit">
+
+                {% for recorder in recorders reversed %}
+
+                <h3 style="color: red;"> {{ recorder.id }} {{recorder.content}}  
+                    <audio controls>
+                        <source src="media/{{ recorder.audio}} " type="audio/wav">
+
+                        <embed height="50" width="100" src="{% static 'golnar.wav' %}">
+                    </audio>
+                </h3>
+
+                {% endfor %}
+                </form>
+            </div>
+        </div>
+
+        
+        
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+.logo{ width: 140px; -moz-transform: scale(1); -webkit-transform: scale(1); transform: scale(1); transition:0.7s ease all; -webkit-transition:0.7s ease all; -moz-transition:0.7s ease all;}
+
+.logo:hover{ -moz-transform: scale(1.3); -webkit-transform: scale(1.3); transform: scale(1.3);}
