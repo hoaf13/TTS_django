@@ -3,46 +3,54 @@
 <head>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/mycss.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 </head>
 <body>
-
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-2" style='background-color:rgb(25,55,71)'>
-                <div class="box" style='padding-top: 200px ;text-align: center;' >
-                    <a href="#"><img src="{% static 'images/ProPTIT.png' %}" alt="My image" class="logo"></a>
-                    <div class="title" style="padding-top: 20px;font-size: xx-large; font-weight: bold;color: aliceblue;">ProPTIT AIForce</div>
-                </div>     
-            </div>
-
-            <div class="col-sm-9">
-                <button type="button" class="btn btn-primary">Primary</button>
-                <form action="." method="post">
+            <div class="left-content">
+                <form action="." class="form-top" method="post">
                     {% csrf_token %}
-                    {{form.as_p}}
-                <input type="submit" value="Submit">
+                    
+                    <div class="form-group">
+                        <label for="name" class="name-file">Text muốn đọc</label> 
+                        {{form.content}}
+                    </div>
+                    <div class="form-group">
+                      <label for="reader" class="name-file">Giọng đọc</label> {{form.gender}}
+                    </div>
+                    <input type="submit" value="Submit">
 
-                {% for recorder in recorders reversed %}
-
-                <h3 style="color: red;"> {{ recorder.id }} {{recorder.content}}  
-                    <audio controls>
-                        <source src="media/{{ recorder.audio}} " type="audio/wav">
-
-                        <embed height="50" width="100" src="{% static 'golnar.wav' %}">
-                    </audio>
-                </h3>
-
-                {% endfor %}
                 </form>
-            </div>
-        </div>
 
-        
-        
+                
+                <div class="box">
+                    <a href="#"><img src="{% static 'images/ProPTIT.png' %}" alt="My image" class="logo"></a>
+                </div>     
+                <h3 class="title">ProPTIT AIForce</h3>
+
+                <div class="row">
+                    <img src="{% static 'images/qrcode1.png' %}" alt="qr1" class="qr logo">
+                    <img src="{% static 'images/qrcode2.png' %}" alt="qr2" class="qr logo">
+                </div>
+            </div>
+            
+            
+            <div class="right-content">
+                {% for recorder in recorders reversed %}
+                <div class="audio">
+                    <h6>{{recorder.id}}. {{recorder.content}}</h6>
+                    <audio controls>
+                        <source src="media/{{ recorder.audio}} " type="audio/mpeg">
+                    </audio>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div> 
     </div>
 
 </body>

@@ -15,9 +15,7 @@ class Home(View):
     def get(self, request):
         recorderForm = RecorderForm()
         no_recorder = min(len(RecorderModel.objects.all()),10)
-        recorders = list(RecorderModel.objects.all())[:no_recorder]
-        
-        print(len(recorders))
+        recorders = list(RecorderModel.objects.all())[-no_recorder:]
         params = {'form' : recorderForm, 'recorders': recorders}
         return render(request, template_name='home/index.html',context=params)
 
