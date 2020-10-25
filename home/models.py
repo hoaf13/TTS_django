@@ -3,7 +3,7 @@ from django.contrib import admin
 # Create your models here.
 
 class RecorderModel(models.Model):
-    GENDERS = ((2, 'New Voice'),(11, 'Old Voice'))
+    GENDERS = ((13, 'Man'),(11, 'Woman - *updating'))
 
     gender = models.IntegerField(default=0, choices=GENDERS)
     content = models.TextField(max_length=2000)
