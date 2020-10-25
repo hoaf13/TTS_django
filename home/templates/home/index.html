@@ -39,7 +39,9 @@
             </div>
             
             
+
             <div class="right-content">
+
                 {% for recorder in recorders reversed %}
                 <div class="audio">
                     <h6>{{recorder.id}}. {{recorder.content}}</h6>
@@ -48,6 +50,32 @@
                     </audio>
                 </div>
                 {% endfor %}
+
+                <div class="audio">
+                    <h6>1_example. {{recorder0.content}}</h6>
+                    <audio controls>
+                        <source src="media/{{ recorder0.audio}} " type="audio/mpeg">
+                    </audio>
+                </div>
+                <div class="audio">
+                    <h6>2_example. {{recorder1.content}}</h6>
+                    <audio controls>
+                        <source src="media/{{ recorder1.audio}} " type="audio/mpeg">
+                    </audio>
+                </div>
+                <div class="audio">
+                    <h6>3_example. {{recorder2.content}}</h6>
+                    <audio controls>
+                        <source src="media/{{ recorder2.audio}} " type="audio/mpeg">
+                    </audio>
+                </div>
+                <div class="audio">
+                    <h6>4_example. {{recorder3.content}}</h6>
+                    <audio controls>
+                        <source src="media/{{ recorder3.audio}} " type="audio/mpeg">
+                    </audio>
+                </div>
+                
             </div>
 
         </div> 

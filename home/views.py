@@ -16,7 +16,14 @@ class Home(View):
         recorderForm = RecorderForm()
         no_recorder = min(len(RecorderModel.objects.all()),10)
         recorders = list(RecorderModel.objects.all())[-no_recorder:]
-        params = {'form' : recorderForm, 'recorders': recorders}
+        
+        recorder0 = RecorderModel.objects.get(id=27)
+        recorder1 = RecorderModel.objects.get(id=26)
+        recorder2 = RecorderModel.objects.get(id=28)
+        recorder3 = RecorderModel.objects.get(id=22)
+
+        params = {'form' : recorderForm, 'recorders': recorders, 'recorder0': recorder0,
+        'recorder1': recorder1,'recorder2': recorder2,'recorder3': recorder3}
         return render(request, template_name='home/index.html',context=params)
 
     def post(self, request):
